@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,17 +16,21 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* BLAS level 1 routine to multiply a one-dimensional ndarray `x` by a constant `alpha` and add the result to a one-dimensional ndarray `y`.
+* Multiplies a one-dimensional ndarray `x` by a constant `alpha` and adds the result to a one-dimensional ndarray `y`.
 *
-* @module @stdlib/blas-base-ndarray-gaxpy
+* @param arrays - array-like object containing an input ndarray, an output ndarray, and a zero-dimensional ndarray containing a scalar constant
+* @returns output ndarray
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var gaxpy = require( '@stdlib/blas-base-ndarray-gaxpy' );
 *
 * var x = vector( [ 1.0, 2.0, 3.0, 4.0, 5.0 ], 'generic' );
 * var y = vector( [ 1.0, 1.0, 1.0, 1.0, 1.0 ], 'generic' );
@@ -41,12 +45,9 @@
 * var bool = ( z === y );
 * // returns true
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function gaxpy<T extends typedndarray<number> = typedndarray<number>, U extends typedndarray<number> = typedndarray<number>>( arrays: [ T, U, T ] ): U;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = gaxpy;
